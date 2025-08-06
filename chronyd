@@ -1,0 +1,12 @@
+---
+- name: reboot & start services
+  hosts: all
+  become: true
+  gather_facts: false
+  
+  tasks:
+    - name: Make sure a service is started
+      service:
+        name: chronyd
+        state: started
+        enabled: yes
